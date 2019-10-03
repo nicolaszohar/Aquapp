@@ -1,0 +1,4 @@
+AuthName "Veuillez vous identifier pour acceder a la gestion d'aquarium"
+AuthType Basic
+AuthUserFile <<PATH_TO_YOUR_ENCRYPTED_USER_PASSWORD>>
+Require valid-user

@@ -1,0 +1,197 @@
+html * { 
+    margin:         0; 
+    padding:        0;
+    font-size:      12px;
+    font-family:    Arial, sans-serif; 
+}
+
+body { 
+    padding:        25px 0 0 0;
+    background:     #02124D url('../css/bg.jpg') fixed;
+}
+
+h1 {
+    color:          white;
+    font-size:      24px;
+    padding:        10px;
+    text-shadow:    5px;
+    font-family:    "Century Gothic", Arial, sans-serif; 
+    clear:          both;
+    text-align:     center;
+}
+
+i { 
+    color:          #ddd; 
+    text-align:     center; 
+}
+
+.pages {
+    padding:        10px 5%; 
+    z-index:        10;
+}
+
+#inventory {}
+#inventory img {
+    height:         75px;
+}
+
+.data  { width:      100%; }
+.data table { 
+    border-collapse: collapse;
+    border-left:    1px solid #999;
+    border-right:   1px solid #999;
+}
+.data table tr { 
+    border-bottom:  1px solid #ccc; 
+}
+.data table th { 
+    font-weight:    bold;
+    white-space:    nowrap;
+}
+
+#total{ 
+    color:          white;
+    float:          right;
+    padding:        5px 10px;
+}
+/* *************************** Log ******************************** */
+#log{
+    display:        none;
+}
+/* ********************** Controls ******************************** */
+#controls {
+    display:        none;
+}
+
+/* ********************** Gallery ******************************** */
+#gallery {
+    display:        none;
+}
+
+.cboxPhoto img { height: 85%; }
+
+#gallery img.galthumb {
+    height:         150px;
+    float:          left;
+    margin:         20px;
+    border:         5px solid #fff;
+    -moz-box-shadow:    2px 2px 12px #333; 
+    -webkit-box-shadow: 2px 2px 12px #333; 
+    box-shadow:         2px 2px 12px #333; 
+}
+/* ************************ Links ********************************* */
+
+#links, #docs { 
+    display:        none;
+}
+#links ul, #docs ul {
+	line-height:    30px;
+    list-style:     square;
+    width:          600px;
+    background:     #eee;
+    border:         1px solid #4297D7;
+    margin:         auto;
+    min-height:     100px;
+}
+#links ul li , #docs ul li {  margin-left: 25px;}
+#links ul li a, #docs ul  li a { color: #333; }
+
+/* ********************* Add ************************************** */
+#addBtn { 
+    float:              left; 
+    cursor:             pointer;
+    padding:            0 5px;   
+    border-right:       1px solid #444;    
+}
+#addBtn:hover{
+    background: #444;
+}
+
+.addEntry {
+    position:           fixed;
+    top:                10px;
+    width:              300px; 
+    padding:            30px; 
+    border:             1px solid #444; 
+    background:         #333; 
+    color:              #eee; 
+    z-index:            20;
+    -moz-box-shadow:    1px 1px 12px #333; 
+    -webkit-box-shadow: 1px 1px 12px #333; 
+    box-shadow:         1px 1px 12px #333; 
+    opacity: 0.95;
+    display:            none;
+}
+
+.addEntry label { 
+    width:              85px;
+    display:            inline-block;
+    margin:             5px;
+}
+
+.addEntry input ,.addEntry textarea,.addEntry select{ width:  150px; margin: 2px 0; }
+
+.addForm { display:     none; }
+
+.fg-button { 
+   outline:         0; 
+   margin:          10px 4px 0 0; 
+   padding:         .4em 1em; 
+   text-decoration: none !important; 
+   cursor:          pointer; 
+   position:        relative; 
+   text-align:      center; 
+   zoom:            1; 
+}
+
+/* ************************ Menu Navigation *********************** */
+#navigation {
+    width:          100%;
+    position:       fixed;
+    top:            0;
+    left:           0;
+    border:         1px solid #444;
+    border-left:    0;
+    background:     #333;
+    z-index:        40;
+    -moz-box-shadow:    2px 2px 12px #333; 
+    -webkit-box-shadow: 2px 2px 12px #333; 
+    box-shadow:         2px 2px 12px #333; 
+}
+
+#lastupdate { 
+    color:          #ccc;
+    float:          left;
+    line-height:    30px;
+    padding-left: 5px;
+}
+
+ul.menu_bar {
+	float:          right;
+    height:         30px;
+	list-style:     none;
+	margin:         0;
+	padding:        0 10px 0 0;
+}
+.menu_bar li { float:  left; }
+.menu_bar li a {
+    color:          #aaa;
+    background:     #333;
+    display:        block;
+    line-height:    29px;
+    font-size:      13px;
+    text-align:     center;
+    text-decoration:none;
+    padding:        0 15px;
+    cursor:         pointer;
+    border-right:    1px solid #000;
+    border-left:    1px solid #444;
+}
+.menu_bar li a:hover{ 
+    background:     #444;
+    border-bottom:  3px solid #2E6589;
+}
+.menu_bar li a.selected {
+    font-weight:    bold;
+    border-bottom:  3px solid #4297D7;
+}

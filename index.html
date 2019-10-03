@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Author" content="Nicoz" />
+    <title>Gestion Aquarium</title>
+
+    <link rel="shortcut icon" href="css/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables_themeroller.css" />
+    <link rel="stylesheet" type="text/css" href="css/redmond/jquery-ui-1.8.18.custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/uploadify/uploadify.css" />
+    <link rel="stylesheet" type="text/css" href="css/colorbox.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.core.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.datepicker.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="js/highcharts.min.js"></script>
+    <script type="text/javascript" src="js/highcharts.exporting.min.js"></script>
+    <script type="text/javascript" src="js/swfobject.js"></script>
+    <script type="text/javascript" src="js/jquery.uploadify.v2.1.4.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div id="navigation">
+       <div id="addBtn"><img src="css/add.png" /></div>
+       <div id="lastupdate"><b>Derni&egrave;re mise &agrave; jour : </b><span></span></div>
+       <ul class="menu_bar">
+            <li><a onClick="openMenu('#inventory');" id="inventoryMenu">Inventaire</a></li>
+            <li><a onClick="openMenu('#log');" id="logMenu">Journal</a></li>
+            <li><a onClick="openMenu('#controls');" id="controlsMenu">Tests Eau</a></li>
+            <li><a onClick="openMenu('#gallery');" id="galleryMenu">Photos</a></li>
+            <li><a onClick="openMenu('#docs');" id="docsMenu">Notices</a></li>
+            <li><a onClick="openMenu('#links');" id="linksMenu">Liens</a></li>
+        </ul>
+    </div>
+    
+    <div class="addEntry">
+        <form id="logForm" class="addForm" action="#">
+            <input type="hidden" name="p" value="log"/>
+            <label>Date : </label><input type="text" value="" name="date" class="date" /><br/>
+            <label>Action : </label><input type="text" value="" name="action" /><br/>
+            <label>Commentaire : </label><input type="text" value="" name="comment" /><br/>
+            <label></label><input type="submit" name="submit" value=" Ajouter au journal " class="fg-button ui-state-default ui-corner-all"/>  
+        </form>
+        <form id="inventoryForm" class="addForm" action="#">
+            <input type="hidden" name="p" value="inventory"/>
+            <label style="vertical-align: top;">Image : </label><input id="filename" type="hidden" name="img" /><input id="file_upload" type="file" name="file_upload" />
+            <label>Nom : </label><input type="text" value="" name="name" /><br/>
+            <label>Marque : </label><input type="text" value="" name="manufacturer" /><br/>
+            <label style="vertical-align: top;">Designation : </label><textarea type="text" value="" name="description" style="min-width:152px;"></textarea><br/>
+            <label>Catégory : </label><select name="category"><option value="Plantes">Plantes</option><option value="Poissons">Poissons</option><option value="Decorations">Decorations</option><option value="Escargots">Escargots</option><option value="Entretien">Entretien</option><option value="Materiel">Materiel</option></select><br/>
+            <label>Date Ajout : </label><input type="text" value="" name="useDate" class="date" /><br/>
+            <label>Date Achat : </label><input type="text" value="" name="buyDate" class="date" /><br/>
+            <label>Prix Unité : </label><input type="text" value="" name="unitPrice" /><br/>
+            <label>Quantité  : </label><input type="text" value="" name="quantity" /><br/>
+            <label></label><input type="submit" name="submit" value=" Ajouter à l'inventaire " class="fg-button ui-state-default ui-corner-all"/>  
+        </form>
+        <form id="controlsForm" class="addForm" action="#">
+            <input type="hidden" name="p" value="controls"/>
+            <label>Date : </label><input type="text" value="" name="date" class="date" /><br/>
+            <label>Source : </label><select name="source"><option value="Bandelette">Bandelette</option><option value="Gouttes">Gouttes</option><option value="Botanic">Botanic</option><option value="Bandelette/Gouttes">Bandelette/Gouttes</option></select><br/>
+            <label>pH : </label><input type="text" value="" name="ph" /><br/>
+            <label>GH : </label><input type="text" value="" name="gh" /><br/>
+            <label>KH : </label><input type="text" value="" name="kh" /><br/>
+            <label>NO2 : </label><input type="text" value="" name="no2" /><br/>
+            <label>NO3 : </label><input type="text" value="" name="no3" /><br/>
+            <label>Cl2 : </label><input type="text" value="" name="cl2" /><br/>
+            <label>Temp : </label><input type="text" value="" name="temp" /><br/>
+            <label></label><input type="submit" name="submit" value=" Ajouter aux controles " class="fg-button ui-state-default ui-corner-all"/>  
+        </form>
+         <form id="linksForm" class="addForm" action="#">
+            <input type="hidden" name="p" value="links"/>
+            <label>Titre : </label><input type="text" value="" name="title" /> 
+            <label>Url : </label><input type="text" value="" name="url" style="width: 200px;" /> 
+            <label></label><input type="submit" name="submit" value=" Ajouter un lien " class="fg-button ui-state-default ui-corner-all"/>  
+        </form>
+    </div>
+    
+    <div id="inventory" class="pages">
+        <h1>Fiche de Suivi - Aquarium Jüwel Rio 125</h1>
+        <div id="total"><b>Total: </b><span></span> &euro;</div>
+        <div id="dataLog" class="data">
+            <table id="tableInventory">
+            <thead>
+                <tr>
+                    <th>Illustration</th><th width="15%">Nom</th><th>Marque</th><th>Designation</th><th>Categorie</th><th>Ajout aqua.</th><th>Date Achat</th><th>Prix Unit&eacute;</th><th>Quantit&eacute;</th><th>Prix Total</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div id="log" class="pages">
+        <h1>Journal des actions</h1>
+        <div id="dataLogs" class="data">
+            <table id="tableLogs">
+            <thead>
+                <tr>
+                    <th>Date</th><th>Action</th><th>Commentaire</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div id="controls" class="pages">
+        <h1>Controles des paramètres de l'eau</h1>
+        <i>Acidité (pH), de la dureté totale (GH), de la dureté carbonatée (KH), des nitrites (NO2), des nitrates (NO3) et du Chlore (CL2)</i><br/>
+        
+        <div id="dataControls" class="data">
+            <table id="tableControls">
+            <thead>
+                <tr>
+                    <th>Date</th><th>Source</th><th>pH [6&lt;x&lt;8]</th><th>GH [5&lt;x&lt;10]</th><th>KH [&gt;4]</th><th>NO2 [=0]</th><th>NO3 [&lt;15mg/L]</th><th>Cl2 [=0]</th><th>T°C</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+        </div>
+        <br/>
+        <div id="chartAll" style="height: 400px;"></div>
+
+    </div>
+    
+    <div id="gallery" class="pages">
+        <h1>Galerie Photos</h1>
+        <br/>        
+        <a class="group1" href="data/gallery/IMG_20120313_221658.jpg" title="Nouveau RIO125 sur Meuble (13/03/2012)" ><img src="data/gallery/IMG_20120415_183417.jpg" class="galthumb"/></a>        
+    </div>
+    
+    <div id="docs" class="pages">
+        <h1>Documentation et Notices</h1>
+        <ul>
+            <li><a href="data/files/Catalogue_Juwel_2011.pdf" target="_blank">Catalogue Juwel</a></li>
+            <li><a href="data/files/Notice_Aquarium_Rio_125.pdf" target="_blank">Notice Aquarium RIO 125</a></li>
+            <li><a href="data/files/Notice_Filter_System_Bioflow_3.0.pdf" target="_blank">Notice Filtre Bioflow 3.0</a></li>
+        </ul>
+    </div>
+    
+    <div id="links" class="pages">
+        <h1>Liens d'Aquariophilies utiles</h1>
+        <ul id="tableLinks"></ul>
+    </div>
+
+</body>
+</html>
